@@ -511,8 +511,8 @@ if !exists("mp_no_flint")
     syn keyword cStorageClass   FLINT_UNUSED
     syn keyword cStorageClass   FLINT_SET_BUT_UNUSED
     syn keyword cStorageClass   FLINT_WARN_UNUSED
-    syn match   cStorageClass   display contained "^[A-Z_]_INLINE"
-    syn match   cStorageClass   display contained "^[A-Z_]_DLL"
+    syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
+    syn match   cStorageClass   "[A-Z_]\+_DLL\>"
 
     " operators
     syn keyword cOperator       FLINT_ASSERT
@@ -684,7 +684,8 @@ if !exists("mp_no_arb")
 
 
     " attributes
-    syn match   cStorageClass   display contained "^[A-Z_]_INLINE"
+    syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
+    syn match   cStorageClass   "[A-Z_]\+_DLL\>"
 endif
 
 " vim: ts=8
