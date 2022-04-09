@@ -16,7 +16,7 @@
 "
 " Language:	C
 " Maintainer:	Albin Ahlbäck <albin.ahlback@gmail.com>
-" Last Change:	2022 March 15
+" Last Change:	2022 April 10
 
 " GMP
 if !exists("mp_no_gmp")
@@ -480,8 +480,6 @@ if !exists("mp_no_flint")
     syn keyword cConstant       COEFF_MAX       COEFF_MIN
 
     " macros
-    syn keyword cMacro  PTR_TO_COEFF    COEFF_TO_PTR
-
     syn keyword cMacro  WORD            UWORD
     syn keyword cMacro  FLINT_TEST_INIT
     syn keyword cMacro  FLINT_TEST_CLEANUP
@@ -506,11 +504,15 @@ if !exists("mp_no_flint")
     syn keyword cMacro  FLINT_NEWTON_END_LOOP
     syn keyword cMacro  FLINT_NEWTON_END
 
+    syn keyword cMacro  PTR_TO_COEFF    COEFF_TO_PTR
+    syn keyword cMacro  COEFF_IS_MPZ
+
     " attributes
     syn keyword cStorageClass   FLINT_NORETURN
     syn keyword cStorageClass   FLINT_UNUSED
     syn keyword cStorageClass   FLINT_SET_BUT_UNUSED
     syn keyword cStorageClass   FLINT_WARN_UNUSED
+    syn keyword cStorageClass   FLINT_TLS_PREFIX
     syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
     syn match   cStorageClass   "[A-Z_]\+_DLL\>"
 
@@ -555,7 +557,7 @@ if !exists("mp_no_arb")
     syn keyword cConstant       __ARB_VERSION_MINOR
     syn keyword cConstant       __ARB_VERSION_PATCHLEVEL
     syn keyword cConstant       ARB_VERSION
-    syn keyword cConstant       ARB_RELEASE
+    syn keyword cConstant       __ARB_RELEASE
 
     syn keyword cConstant       MAG_BITS
     syn keyword cConstant       MAG_ONE_HALF
@@ -664,7 +666,6 @@ if !exists("mp_no_arb")
     syn keyword cMacro  ARF_GET_MPN_READONLY
     syn keyword cMacro  ARF_GET_TOP_LIMB
     syn keyword cMacro  ARF_GET_MPN_WRITE
-    syn keyword cMacro  UI_ABS_SI
     syn keyword cMacro  ARF_MPN_MUL
     syn keyword cMacro  ARF_MUL_TMP_DECL
     syn keyword cMacro  ARF_MUL_TMP_ALLOC
@@ -676,6 +677,9 @@ if !exists("mp_no_arb")
     syn keyword cMacro  ARB_IS_LAGOM
     syn keyword cMacro  ARB_DEF_CACHED_CONSTANT
 
+    syn keyword cMacro  UI_ABS_SI
+    syn keyword cMacro  nn_mul_2x1              nn_mul_2x2
+
     syn keyword cMacro  NEWTON_INIT
     syn keyword cMacro  NEWTON_BASECASE
     syn keyword cMacro  NEWTON_END_BASECASE
@@ -684,8 +688,7 @@ if !exists("mp_no_arb")
 
 
     " attributes
-    syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
-    syn match   cStorageClass   "[A-Z_]\+_DLL\>"
+    syn keyword cStorageClass   TLS_PREFIX
 endif
 
 " For some reason, Vim does not set this by default.
