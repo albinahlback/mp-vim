@@ -76,7 +76,27 @@ endif
 
 " MPFR
 if !exists("mp_no_mpfr")
-    " TODO: Fill this out
+    syn keyword cType   mpfr_void
+    syn keyword cType   mpfr_int        mpfr_uint
+    syn keyword cType   mpfr_long       mpfr_ulong
+    syn keyword cType   mpfr_size_t
+
+    syn keyword cType   mpfr_flags_t
+    syn keyword cType   mpfr_rnd_t
+
+    syn keyword cType   mpfr_prec_t     mpfr_uprec_t
+    syn keyword cType   mpfr_sign_t
+    syn keyword cType   mpfr_exp_t      mpfr_uexp_t
+
+    " main structure
+    syn keyword cType   __mpfr_struct
+    syn keyword cType   mpfr_t
+    syn keyword cType   mpfr_ptr        mpfr_srcptr
+
+    syn keyword cType   mpfr_kind_t     mpfr_free_cache_t
+
+    " attributes
+    syn keyword cStorageClass   __MPFR_DECLSPEC
 endif
 
 " FLINT
