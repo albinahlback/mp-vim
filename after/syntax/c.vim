@@ -102,385 +102,184 @@ endif
 " FLINT
 if !exists("mp_no_flint")
     " flint.h
-    syn keyword cType   ulong
-    syn keyword cType   slong
+    syn keyword cType   ulong                   slong
     syn keyword cType   flint_bitcnt_t
 
-    syn keyword cType   flint_mpfr
-
-    syn keyword cType   flint_rand_struct
+    syn keyword cType   flint_rand_s
     syn keyword cType   flint_rand_t
     syn keyword cType   flint_rand_ptr          flint_rand_srcptr
 
-    " ulong_extras.h
-    syn keyword cType   n_factor_struct
-    syn keyword cType   n_factor_t
-    syn keyword cType   n_factor_ptr            n_factor_srcptr
-    
-    syn keyword cType   n_primes_struct
-    syn keyword cType   n_primes_t
-    syn keyword cType   n_primes_ptr            n_primes_srcptr
-    
-    syn keyword cType   n_ecm_struct
-    syn keyword cType   n_ecm_t
-    syn keyword cType   n_ecm_ptr               n_ecm_srcptr
-    
-    " fmpz.h
-    syn keyword cType   fmpz
-    syn keyword cType   fmpz_t
-    syn keyword cType   fmpz_ptr                fmpz_srcptr
+    syn keyword cType   __FLINT_FILE            FLINT_FILE
 
-    syn keyword cType   fmpz_randstate_struct
-    syn keyword cType   fmpz_randstate_t
-
-    syn keyword cType   fmpz_preinvn_struct
-    syn keyword cType   fmpz_preinvn_t
-
-    syn keyword cType   fmpz_block_header_struct
-
-    syn keyword cType   _fmpz_multi_CRT_instr
-    syn keyword cType   fmpz_multi_CRT_struct
-    syn keyword cType   fmpz_multi_CRT_t
-
-    syn keyword cType   _fmpz_multi_mod_instr
-    syn keyword cType   fmpz_multi_mod_struct
-    syn keyword cType   fmpz_multi_mod_t
-
-    syn keyword cType   crt_lut_entry
-
-    syn keyword cType   mod_lut_entry
-
-    syn keyword cType   fmpz_comb_struct
-    syn keyword cType   fmpz_comb_t
-
-    syn keyword cType   fmpz_comb_temp_struct
-    syn keyword cType   fmpz_comb_temp_t
-
-    " fmpq.h
-    syn keyword cType   fmpq
-    syn keyword cType   fmpq_t
-    syn keyword cType   fmpq_ptr                fmpq_srcptr
-
-    syn keyword cType   _fmpz_mat22_struct
-    syn keyword cType   _fmpz_mat22_t
-
-    syn keyword cType   _ui_mat22_struct
-    syn keyword cType   _ui_mat22_t
-
-    syn keyword cType   _fmpq_cfrac_list_struct
-    syn keyword cType   _fmpq_cfrac_list_t
-
-    syn keyword cType   _fmpq_ball_struct
-    syn keyword cType   _fmpq_ball_t
-
-    " profiler.h
-    syn keyword cType   meminfo_t
-    syn keyword cType   timeit_t
-
-    " exception.h
-    syn keyword cType   flint_err_t
-
-    " d_mat.h
-    syn keyword cType   d_mat_struct
-    syn keyword cType   d_mat_t
-    syn keyword cType   d_mat_ptr               d_mat_srcptr
-
-    " arith.h
-    syn keyword cType   trig_product_struct
-    syn keyword cType   trig_product_t
-
-    " nmod.h
-    syn keyword cType   nmod_struct
-    syn keyword cType   nmod_t
-    syn keyword cType   nmod_ptr                nmod_srcptr
-
-    syn keyword cType   nmod_discrete_log_pohlig_hellman_table_entry_struct
-    syn keyword cType   nmod_discrete_log_pohlig_hellman_entry_struct
-    syn keyword cType   nmod_discrete_log_pohlig_hellman_t
-    syn keyword cType   nmod_discrete_log_pohlig_hellman_ptr
-    syn keyword cType   nmod_discrete_log_pohlig_hellman_srcptr
-
-    " fmpz_factor.h
-    syn keyword cType   fmpz_factor_struct
-    syn keyword cType   fmpz_factor_t
-    syn keyword cType   fmpz_factor_ptr         fmpz_factor_srcptr
-
-    syn keyword cType   ecms_struct
-    syn keyword cType   ecms_t
-    syn keyword cType   ecms_ptr                ecms_srcptr
-
-    " fmpz_mod.h
-    syn keyword cType   fmpz_mod_ctx_struct
-    syn keyword cType   fmpz_mod_ctx_t
-    syn keyword cType   fmpz_mod_ctx_ptr        fmpz_mod_ctx_srcptr
-
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_table_entry_struct
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_entry_struct
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_struct
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_t
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_ptr
-    syn keyword cType   fmpz_mod_discrete_log_pohlig_hellman_srcptr
-
-    " fmpz_poly.h
-    syn keyword cType   fmpz_poly_struct
-    syn keyword cType   fmpz_poly_t
-    syn keyword cType   fmpz_poly_ptr           fmpz_poly_srcptr
-
-    syn keyword cType   fmpz_poly_powers_precom_struct
-    syn keyword cType   fmpz_poly_powers_precom_t
-    syn keyword cType   fmpz_poly_powers_precom_ptr
-    syn keyword cType   fmpz_poly_powers_precom_srcptr
-
-    syn keyword cType   fmpz_poly_factor_struct
-    syn keyword cType   fmpz_poly_factor_t
-    syn keyword cType   fmpz_poly_factor_ptr    fmpz_poly_factor_srcptr
-
-    syn keyword cType   fmpz_poly_mul_precache_struct
-    syn keyword cType   fmpz_poly_mul_precache_t
-    syn keyword cType   fmpz_poly_mul_precache_ptr
-    syn keyword cType   fmpz_poly_mul_precache_srcptr
-
-    " fmpz_mat.h
-    syn keyword cType   fmpz_mat_struct
-    syn keyword cType   fmpz_mat_t
-    syn keyword cType   fmpz_mat_ptr            fmpz_mat_srcptr
-
-    " fmpq_poly.h
-    syn keyword cType   fmpq_poly_struct
-    syn keyword cType   fmpq_poly_t
-    syn keyword cType   fmpq_poly_ptr           fmpq_poly_srcptr
-
-    syn keyword cType   fmpq_poly_powers_precomp_struct
-    syn keyword cType   fmpq_poly_powers_precomp_t
-    syn keyword cType   fmpq_poly_powers_precomp_ptr
-    syn keyword cType   fmpq_poly_powers_precomp_srcptr
-
+    " operators
+    syn keyword cOperator       FLINT_ASSERT
 
     " constants
     syn keyword cConstant       __FLINT_VERSION
     syn keyword cConstant       __FLINT_VERSION_MINOR
     syn keyword cConstant       __FLINT_VERSION_PATCHLEVEL
     syn keyword cConstant       FLINT_VERSION
-    syn keyword cConstant       FLINT_RELEASE
+    syn keyword cConstant       __FLINT_RELEASE         __FLINT_RELEASE_NUM
 
-    syn keyword cConstant       UWORD_MAX       UWORD_MIN
-    syn keyword cConstant       WORD_MAX        WORD_MIN
+    syn keyword cConstant       UWORD_MAX               UWORD_MIN
+    syn keyword cConstant       WORD_MAX                WORD_MIN
 
-    syn keyword cConstant       FLINT_BITS      FLINT_D_BITS
+    syn keyword cConstant       FLINT_BITS              FLINT_D_BITS
     syn keyword cConstant       FLINT64
 
-    syn keyword cConstant       COEFF_MAX       COEFF_MIN
-
     " macros
-    syn keyword cMacro  WORD            UWORD
-    syn keyword cMacro  FLINT_TEST_INIT
-    syn keyword cMacro  FLINT_TEST_CLEANUP
-    syn keyword cMacro  FLINT_MAX
-    syn keyword cMacro  FLINT_MIN
+    syn keyword cMacro  FLINT_CONSTANT_P
+    syn keyword cMacro  WORD_FMT                WORD_WIDTH_FMT
+    syn keyword cMacro  WORD                    UWORD
+    syn keyword cMacro  FLINT_GC_INIT
+    syn keyword cMacro  FLINT_TEST_INIT         FLINT_TEST_CLEANUP
+    syn keyword cMacro  FLINT_MAX               FLINT_MIN
     syn keyword cMacro  FLINT_ABS
-    syn keyword cMacro  FLINT_SIGN_EXT
-    syn keyword cMacro  FLINT_SGN
-    syn keyword cMacro  FLINT_FLOG2
-    syn keyword cMacro  FLINT_CLOG2
-    syn keyword cMacro  FLINT_ARRAY_ALLOC
-    syn keyword cMacro  FLINT_ARRAY_REALLOC
-    syn keyword cMacro  TMP_INIT
-    syn keyword cMacro  TMP_START
-    syn keyword cMacro  TMP_ALLOC
-    syn keyword cMacro  TMP_ARRAY_ALLOC
+    syn keyword cMacro  FLINT_SIGN_EXT          FLINT_SGN
+    syn keyword cMacro  FLINT_FLOG2             FLINT_CLOG2
+    syn keyword cMacro  FLINT_ARRAY_ALLOC       FLINT_ARRAY_REALLOC
+    syn keyword cMacro  TMP_INIT                TMP_START
+    syn keyword cMacro  TMP_ALLOC               TMP_ARRAY_ALLOC
     syn keyword cMacro  TMP_END
-    syn keyword cMacro  FLINT_NEWTON_INIT
-    syn keyword cMacro  FLINT_NEWTON_BASECASE
-    syn keyword cMacro  FLINT_NEWTON_END_BASECASE
-    syn keyword cMacro  FLINT_NEWTON_LOOP
-    syn keyword cMacro  FLINT_NEWTON_END_LOOP
-    syn keyword cMacro  FLINT_NEWTON_END
-
-    syn keyword cMacro  PTR_TO_COEFF    COEFF_TO_PTR
-    syn keyword cMacro  COEFF_IS_MPZ
 
     " attributes
-    syn keyword cStorageClass   FLINT_NORETURN
+    syn match   cStorageClass   "[A-Z_]\+_DLL\>"
+    syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
+
+    syn keyword cStorageClass   FLINT_FORCE_INLINE
+    syn keyword cStorageClass   FLINT_STATIC_NOINLINE
     syn keyword cStorageClass   FLINT_UNUSED
     syn keyword cStorageClass   FLINT_SET_BUT_UNUSED
+    syn keyword cStorageClass   FLINT_NORETURN
+    syn keyword cStorageClass   FLINT_CONST
     syn keyword cStorageClass   FLINT_WARN_UNUSED
+    syn keyword cStorageClass   FLINT_UNLIKELY
+    syn keyword cStorageClass   FLINT_LIKELY
+    syn keyword cStorageClass   FLINT_PUSH_OPTIONS
+    syn keyword cStorageClass   FLINT_POP_OPTIONS
+    syn keyword cStorageClass   FLINT_OPTIMIZE_NESTED_3
+    syn keyword cStorageClass   FLINT_OPTIMIZE_NESTED_2
+    syn keyword cStorageClass   FLINT_OPTIMIZE_NESTED_1
+    syn keyword cStorageClass   FLINT_OPTIMIZE
+
     syn keyword cStorageClass   FLINT_TLS_PREFIX
-    syn match   cStorageClass   "[A-Z_]\+_INLINE\>"
-    syn match   cStorageClass   "[A-Z_]\+_DLL\>"
 
-    " operators
-    syn keyword cOperator       FLINT_ASSERT
-endif
+    " limb_types.h
+    syn keyword cType   n_factor_struct
+    syn keyword cType   n_factor_t
+    syn keyword cType   n_factor_ptr                    n_factor_srcptr
+    
+    syn keyword cType   n_primes_struct
+    syn keyword cType   n_primes_t
+    syn keyword cType   n_primes_ptr                    n_primes_srcptr
+    
+    " mpoly_types.h
+    syn keyword cType   ordering_t
+    syn keyword cConstant       MPOLY_NUM_ORDERINGS
+    syn keyword cType   mpoly_ctx_struct                mpoly_ctx_t
+    syn keyword cType   nmod_mpoly_ctx_struct           nmod_mpoly_ctx_t
+    syn keyword cType   fmpz_mpoly_ctx_struct           fmpz_mpoly_ctx_t
+    syn keyword cType   fmpq_mpoly_ctx_struct           fmpq_mpoly_ctx_t
+    syn keyword cType   fmpz_mod_mpoly_ctx_struct       fmpz_mod_mpoly_ctx_t
+    
+    " nmod_types.h
+    syn keyword cType   nmod_t
+    syn keyword cType   nmod_mat_struct                 nmod_mat_t
+    syn keyword cType   nmod_poly_struct                nmod_poly_t
+    syn keyword cType   nmod_poly_factor_struct         nmod_poly_factor_t
+    syn keyword cType   nmod_poly_mat_struct            nmod_poly_mat_t
+    syn keyword cType   nmod_mpoly_struct               nmod_mpoly_t
+    syn keyword cType   nmod_mpoly_factor_struct        nmod_mpoly_factor_t
+    
+    " fmpz_types.h
+    syn keyword cType   fmpz                            fmpz_t
+    syn keyword cConstant       SMALL_FMPZ_BITCOUNT_MAX
+    syn keyword cConstant       COEFF_MIN               COEFF_MAX
+    syn keyword cMacro  PTR_TO_COEFF                    COEFF_TO_PTR
+    syn keyword cMacro  COEFF_IS_MPZ
+    syn keyword cType   fmpz_factor_struct              fmpz_factor_t
+    syn keyword cType   fmpz_preinvn_struct             fmpz_preinvn_t
+    syn keyword cType   fmpz_poly_struct                fmpz_poly_t
+    syn keyword cType   fmpz_poly_factor_struct         fmpz_poly_factor_t
+    syn keyword cType   fmpz_mat_struct                 fmpz_mat_t
+    syn keyword cType   fmpz_poly_mat_struct            fmpz_poly_mat_t
+    syn keyword cType   fmpz_mpoly_struct               fmpz_mpoly_t
+    syn keyword cType   fmpz_mpoly_factor_struct        fmpz_mpoly_factor_t
+    syn keyword cType   fmpz_poly_q_struct              fmpz_poly_q_t
+    syn keyword cType   fmpz_mpoly_q_struct             fmpz_mpoly_q_t
+    syn keyword cType   fmpzi_struct                    fmpzi_t
 
-" Arb
-if !exists("mp_no_arb")
-    syn keyword cType   arf_struct
-    syn keyword cType   arf_t
-    syn keyword cType   arf_ptr             arf_srcptr
+    " fmpz_mod_types.h
+    syn keyword cType   fmpz_mod_ctx_struct             fmpz_mod_ctx_t
+    syn keyword cType   fmpz_mod_mat_struct             fmpz_mod_mat_t
+    syn keyword cType   fmpz_mod_poly_struct            fmpz_mod_poly_t
+    syn keyword cType   fmpz_mod_poly_factor_struct     fmpz_mod_poly_factor_t
+    syn keyword cType   fmpz_mod_mpoly_struct           fmpz_mod_mpoly_t
+    syn keyword cType   fmpz_mod_mpoly_factor_struct    fmpz_mod_mpoly_factor_t
 
-    syn keyword cType   arf_rnd_t 
-    syn keyword cType   mantissa_noptr_struct
-    syn keyword cType   mantissa_ptr_struct
+    " fmpq_types.h
+    syn keyword cType   fmpq                            fmpq_t
+    syn keyword cType   fmpq_mat_struct                 fmpq_mat_t
+    syn keyword cType   fmpq_poly_struct                fmpq_poly_t
+    syn keyword cType   fmpq_mpoly_struct               fmpq_mpoly_t
+    syn keyword cType   fmpq_mpoly_factor_struct        fmpq_mpoly_factor_t
+
+    " fq_types.h
+    syn keyword cType   fq_struct                       fq_t
+    syn keyword cType   fq_ctx_struct                   fq_ctx_t
+    syn keyword cType   fq_mat_struct                   fq_mat_t
+    syn keyword cType   fq_poly_struct                  fq_poly_t
+    syn keyword cType   fq_poly_factor_struct           fq_poly_factor_t
+
+    " fq_nmod_types.h
+    syn keyword cType   fq_nmod_struct                  fq_nmod_t
+    syn keyword cType   fq_nmod_ctx_struct              fq_nmod_ctx_t
+    syn keyword cType   fq_nmod_mat_struct              fq_nmod_mat_t
+    syn keyword cType   fq_nmod_poly_struct             fq_nmod_poly_t
+    syn keyword cType   fq_nmod_poly_factor_struct      fq_nmod_poly_factor_t
+
+    " fq_zech_types.h
+    syn keyword cType   fq_zech_struct                  fq_zech_t
+    syn keyword cType   fq_zech_ctx_struct              fq_zech_ctx_t
+    syn keyword cType   fq_zech_mat_struct              fq_zech_mat_t
+    syn keyword cType   fq_zech_poly_struct             fq_zech_poly_t
+    syn keyword cType   fq_zech_poly_factor_struct      fq_zech_poly_factor_t
+
+    " fq_default_types.h
+    syn keyword cConstant       FQ_DEFAULT_FQ_ZECH      FQ_DEFAULT_FQ_NMOD
+    syn keyword cConstant       FQ_DEFAULT_FQ           FQ_DEFAULT_NMOD
+    syn keyword cConstant       FQ_DEFAULT_FMPZ_MOD
+    syn keyword cType   fq_default_struct               fq_default_t
+    syn keyword cType   fq_default_ctx_struct           fq_default_ctx_t
+    syn keyword cType   fq_default_mat_struct           fq_default_mat_t
+    syn keyword cType   fq_default_poly_struct          fq_default_poly_t
+
+    " arf_types.h
+    syn keyword cConstant       ARF_NOPTR_LIMBS
+    syn keyword cType   mantissa_noptr_struct           mantissa_ptr_struct
     syn keyword cType   mantissa_struct
+    syn keyword cType   arf_struct                      arf_t
+    syn keyword cType   arf_ptr                         arf_srcptr
+    syn keyword cType   arf_interval_struct             arf_interval_t
+    syn keyword cType   arf_interval_ptr                arf_interval_srcptr
 
-    syn keyword cType   mag_struct
-    syn keyword cType   mag_t
-    syn keyword cType   mag_ptr             mag_srcptr
+    " acf_types.h
+    syn keyword cType   acf_struct                      acf_t
+    syn keyword cType   acf_ptr                         acf_srcptr
 
-    syn keyword cType   arb_struct
-    syn keyword cType   arb_t
-    syn keyword cType   arb_ptr             arb_srcptr
+    " arb_types.h
+    syn keyword cType   mag_struct                      mag_t
+    syn keyword cType   mag_ptr                         mag_srcptr
+    syn keyword cType   arb_struct                      arb_t
+    syn keyword cType   arb_ptr                         arb_srcptr
+    syn keyword cType   arb_mat_struct                  arb_mat_t
+    syn keyword cType   arb_poly_struct                 arb_poly_t
 
-    syn keyword cType   acb_struct
-    syn keyword cType   acb_t
-    syn keyword cType   acb_ptr             acb_srcptr
-
-    syn keyword cType   arb_poly_struct
-    syn keyword cType   arb_poly_t
-    syn keyword cType   arb_poly_ptr        arb_poly_srcptr
-
-    syn keyword cType   acb_poly_struct
-    syn keyword cType   acb_poly_t
-    syn keyword cType   acb_poly_ptr        acb_poly_srcptr
-
-
-    " constants
-    syn keyword cConstant       __ARB_VERSION
-    syn keyword cConstant       __ARB_VERSION_MINOR
-    syn keyword cConstant       __ARB_VERSION_PATCHLEVEL
-    syn keyword cConstant       ARB_VERSION
-    syn keyword cConstant       __ARB_RELEASE
-
-    syn keyword cConstant       MAG_BITS
-    syn keyword cConstant       MAG_ONE_HALF
-    syn keyword cConstant       MAG_MAX_LAGOM_EXP       MAG_MIN_LAGOM_EXP
-    syn keyword cConstant       MAG_EXP_POS_INF
-    syn keyword cConstant       ADD2_FAST_MAX           ADD2_FAST_MIN
-    syn keyword cConstant       LIMB_ONE
-    syn keyword cConstant       LIMB_ONES
-    syn keyword cConstant       LIMB_TOP
-    syn keyword cConstant       MASK_LIMB
-
-    syn keyword cConstant       ARF_RND_DOWN            ARF_RND_UP
-    syn keyword cConstant       ARF_RND_FLOOR           ARF_RND_CEIL
-    syn keyword cConstant       ARF_RND_NEAR            ARF_PREC_EXACT
-    syn keyword cConstant       ARF_RESULT_EXACT        ARF_RESULT_INEXACT
-    syn keyword cConstant       ARF_MAX_LAGOM_EXP       ARF_MIN_LAGOM_EXP
-    syn keyword cConstant       ARF_EXP_ZERO
-    syn keyword cConstant       ARF_EXP_NAN
-    syn keyword cConstant       ARF_EXP_POS_INF         ARF_EXP_NEG_INF
-    syn keyword cConstant       MUL_MPFR_MIN_LIMBS      MUL_MPFR_MAX_LIMBS
-    syn keyword cConstant       ARF_MUL_STACK_ALLOC
-    syn keyword cConstant       ARF_MUL_TLS_ALLOC
-    syn keyword cConstant       ARF_ADD_STACK_ALLOC
-    syn keyword cConstant       ARF_ADD_TLS_ALLOC
-
-    syn keyword cConstant       ARB_RND
-    syn keyword cConstant       ARB_STR_MORE
-    syn keyword cConstant       ARB_STR_NO_RADIUS
-    syn keyword cConstant       ARB_STR_CONDENSE
-    syn keyword cConstant       ARB_ATAN_TAB1_BITS
-    syn keyword cConstant       ARB_ATAN_TAB1_PREC
-    syn keyword cConstant       ARB_ATAN_TAB1_LIMBS
-    syn keyword cConstant       ARB_ATAN_TAB21_BITS
-    syn keyword cConstant       ARB_ATAN_TAB22_BITS
-    syn keyword cConstant       ARB_ATAN_TAB2_PREC
-    syn keyword cConstant       ARB_ATAN_TAB2_LIMBS
-    syn keyword cConstant       ARB_LOG_TAB11_BITS
-    syn keyword cConstant       ARB_LOG_TAB12_BITS
-    syn keyword cConstant       ARB_LOG_TAB1_PREC
-    syn keyword cConstant       ARB_LOG_TAB1_LIMBS
-    syn keyword cConstant       ARB_LOG_TAB21_BITS
-    syn keyword cConstant       ARB_LOG_TAB22_BITS
-    syn keyword cConstant       ARB_LOG_TAB2_PREC
-    syn keyword cConstant       ARB_LOG_TAB2_LIMBS
-    syn keyword cConstant       ARB_EXP_TAB1_NUM
-    syn keyword cConstant       ARB_EXP_TAB1_BITS
-    syn keyword cConstant       ARB_EXP_TAB1_PREC
-    syn keyword cConstant       ARB_EXP_TAB1_LIMBS
-    syn keyword cConstant       ARB_EXP_TAB21_NUM
-    syn keyword cConstant       ARB_EXP_TAB21_BITS
-    syn keyword cConstant       ARB_EXP_TAB22_NUM
-    syn keyword cConstant       ARB_EXP_TAB22_BITS
-    syn keyword cConstant       ARB_EXP_TAB2_PREC
-    syn keyword cConstant       ARB_EXP_TAB2_LIMBS
-    syn keyword cConstant       ARB_SIN_COS_TAB1_NUM
-    syn keyword cConstant       ARB_SIN_COS_TAB1_BITS
-    syn keyword cConstant       ARB_SIN_COS_TAB1_PREC
-    syn keyword cConstant       ARB_SIN_COS_TAB1_LIMBS
-    syn keyword cConstant       ARB_SIN_COS_TAB21_NUM
-    syn keyword cConstant       ARB_SIN_COS_TAB21_BITS
-    syn keyword cConstant       ARB_SIN_COS_TAB22_NUM
-    syn keyword cConstant       ARB_SIN_COS_TAB22_BITS
-    syn keyword cConstant       ARB_SIN_COS_TAB2_PREC
-    syn keyword cConstant       ARB_SIN_COS_TAB2_LIMBS
-    syn keyword cConstant       ARB_PI4_TAB_LIMBS
-
-    syn keyword cConstant       ACB_LAMBERTW_LEFT
-    syn keyword cConstant       ACB_LAMBERTW_MIDDLE
-
-    syn keyword cConstant       ARB_HYPGEOM_GAMMA_TAB_NUM
-    syn keyword cConstant       ARB_HYPGEOM_GAMMA_TAB_PREC
-
-
-    " macros
-    syn keyword cMacro  MAG_IS_LAGOM
-    syn keyword cMacro  MAG_EXPREF
-    syn keyword cMacro  MAG_EXP
-    syn keyword cMacro  MAG_MAN
-    syn keyword cMacro  MAG_FIXMUL
-    syn keyword cMacro  MAG_CHECK_BITS
-    syn keyword cMacro  MAG_ADJUST_ONE_TOO_LARGE
-    syn keyword cMacro  MAG_FAST_ADJUST_ONE_TOO_LARGE
-    syn keyword cMacro  MAG_ADJUST_ONE_TOO_SMALL
-    syn keyword cMacro  MAG_FAST_ADJUST_ONE_TOO_SMALL
-    syn keyword cMacro  MAG_SET_D_2EXP
-    syn keyword cMacro  MAG_SET_D_2EXP_LOWER
-
-    syn keyword cMacro  ARF_PREC_ADD
-    syn keyword cMacro  ARF_EXP
-    syn keyword cMacro  ARF_EXPREF
-    syn keyword cMacro  ARF_IS_LAGOM
-    syn keyword cMacro  ARF_HAS_PTR
-    syn keyword cMacro  ARF_XSIZE
-    syn keyword cMacro  ARF_MAKE_XSIZE
-    syn keyword cMacro  ARF_SIZE
-    syn keyword cMacro  ARF_SGNBIT
-    syn keyword cMacro  ARF_NEG
-    syn keyword cMacro  ARF_NOPTR_LIMBS
-    syn keyword cMacro  ARF_NOPTR_D
-    syn keyword cMacro  ARF_PTR_D
-    syn keyword cMacro  ARF_PTR_ALLOC
-    syn keyword cMacro  ARF_IS_SPECIAL
-    syn keyword cMacro  ARF_IS_POW2
-    syn keyword cMacro  ARF_MAKE_SPECIAL
-    syn keyword cMacro  ARF_DEMOTE
-    syn keyword cMacro  ARF_GET_MPN_READONLY
-    syn keyword cMacro  ARF_GET_TOP_LIMB
-    syn keyword cMacro  ARF_GET_MPN_WRITE
-    syn keyword cMacro  ARF_MPN_MUL
-    syn keyword cMacro  ARF_MUL_TMP_DECL
-    syn keyword cMacro  ARF_MUL_TMP_ALLOC
-    syn keyword cMacro  ARF_MUL_TMP_FREE
-    syn keyword cMacro  ARF_ADD_TMP_DECL
-    syn keyword cMacro  ARF_ADD_TMP_ALLOC
-    syn keyword cMacro  ARF_ADD_TMP_FREE
-
-    syn keyword cMacro  ARB_IS_LAGOM
-    syn keyword cMacro  ARB_DEF_CACHED_CONSTANT
-
-    syn keyword cMacro  UI_ABS_SI
-    syn keyword cMacro  nn_mul_2x1              nn_mul_2x2
-
-    syn keyword cMacro  NEWTON_INIT
-    syn keyword cMacro  NEWTON_BASECASE
-    syn keyword cMacro  NEWTON_END_BASECASE
-    syn keyword cMacro  NEWTON_END_LOOP
-    syn keyword cMacro  NEWTON_END
-
-
-    " attributes
-    syn keyword cStorageClass   TLS_PREFIX
+    " acb_types.h
+    syn keyword cType   acb_struct                      acb_t
+    syn keyword cType   acb_ptr                         acb_srcptr
+    syn keyword cType   acb_mat_struct                  acb_mat_t
+    syn keyword cType   acb_poly_struct                 acb_poly_t
 endif
 
 " For some reason, Vim does not set this by default.
