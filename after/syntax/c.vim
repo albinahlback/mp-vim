@@ -16,7 +16,7 @@
 "
 " Language:	C
 " Maintainer:	Albin Ahlbäck <albin.ahlback@gmail.com>
-" Last Change:	2022 April 10
+" Last Change:	2024 January 24
 
 " GMP
 if !exists("mp_no_gmp")
@@ -110,6 +110,13 @@ if !exists("mp_no_flint")
     syn keyword cType   flint_rand_ptr          flint_rand_srcptr
 
     syn keyword cType   __FLINT_FILE            FLINT_FILE
+
+    " String highlighting
+    syn match	cFormat		display "%%" contained
+    syn match	cFormat		display "%\%(\d\+\$\)\=[-+' #0*]*\%(\d*\|\*\|\*\d\+\$\)\%(\.\%(\d*\|\*\|\*\d\+\$\)\)\=\%([hlLjztw]\|ll\|hh\)\=\%([aAbdiuoxXDOUfFeEgGcCsSpn]\|\[\^\=.[^]]*\]\)" contained
+    syn match	cFormat		display "%{\%(ulong\|slong\|fmpz\|fmpq\|mag\|arf\|arb\|acb\|nmod\|fmpz_mod_ctx\|mpz\|mpq\)}" contained
+    syn match	cFormat		display "%{\%(ulong\|slong\|fmpz\|fmpq\|mag\|arf\|arb\|acb\)\*}" contained
+    syn match	cFormat		display "%{\%(nmod\|fmpz\|fmpz_mod\|fmpq\|arb\|acb\)_\%(poly\|mat\)}" contained
 
     " operators
     syn keyword cOperator       FLINT_ASSERT
