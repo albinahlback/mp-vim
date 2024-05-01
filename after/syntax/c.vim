@@ -16,7 +16,7 @@
 "
 " Language:	C
 " Maintainer:	Albin Ahlbäck <albin.ahlback@gmail.com>
-" Last Change:	2024 January 24
+" Last Change:	2024 May 1
 
 " GMP
 if !exists("mp_no_gmp")
@@ -135,7 +135,6 @@ if !exists("mp_no_flint")
     syn keyword cConstant       FLINT64
 
     " macros
-    syn keyword cMacro  FLINT_CONSTANT_P
     syn keyword cMacro  WORD_FMT                WORD_WIDTH_FMT
     syn keyword cMacro  WORD                    UWORD
     syn keyword cMacro  FLINT_GC_INIT
@@ -168,6 +167,8 @@ if !exists("mp_no_flint")
     syn keyword cStorageClass   FLINT_OPTIMIZE_NESTED_2
     syn keyword cStorageClass   FLINT_OPTIMIZE_NESTED_1
     syn keyword cStorageClass   FLINT_OPTIMIZE
+    syn keyword cStorageClass   FLINT_CONSTANT_P
+    syn keyword cStorageClass   FLINT_UNREACHABLE
 
     syn keyword cStorageClass   FLINT_TLS_PREFIX
 
