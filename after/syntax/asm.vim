@@ -3,6 +3,12 @@
 " Maintainer:		Albin Ahlbäck <albin.ahlback@gmail.com>
 " Last Change:		2024 Dec 02
 
+" We do not want to catch '
+syn clear asmCharacter
+
+" These are offsets in ARM assembly
+syn match asmDecimal		"#\d\+\*\d"
+
 " We do not want to comment stuff like `#' as that not a multiplatform comment.
 syn clear asmComment
 
