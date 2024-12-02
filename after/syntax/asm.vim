@@ -10,8 +10,8 @@ syn region asmComment		start="dnl" end="$" keepend contains=asmTodo,@Spell
 syn region asmComment		start="C" end="$" keepend contains=asmTodo,@Spell
 
 " M4 stuff
-syn region m4Command  matchgroup=m4Function  start="\<define(" end=")"
-syn region m4Command  matchgroup=m4Preproc   start="\<include(" end=")"
+syn match m4Function		"\<\%(define\|undefine\)\>"
+syn match m4Preproc		"\<include\>"
 
 hi def link m4Function  Function
 hi def link m4Preproc   PreProc
@@ -19,5 +19,6 @@ hi def link m4Preproc   PreProc
 syn region asmDirective		start="\<ALIGN(" end=")"
 syn region asmDirective		start="\<PROLOGUE(" end=")"
 syn match asmDirective		"\<EPILOGUE()"
+syn match asmDirective		"\<TEXT\>"
 
 " vim: nowrap sw=2 sts=2 ts=8 noet
