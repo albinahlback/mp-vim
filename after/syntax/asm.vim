@@ -12,9 +12,11 @@ syn region asmComment		start="C" end="$" keepend contains=asmTodo,@Spell
 " M4 stuff
 syn match m4Function		"\<\%(define\|undefine\)\>"
 syn match m4Preproc		"\<include\>"
+syn match m4Statement		"\<\%(ifdef\|ifelse\|changecom\|changequote\|divert\|undivert\)\>"
 
 hi def link m4Function  Function
 hi def link m4Preproc   PreProc
+hi def link m4Statement Statement
 
 syn region asmDirective		start="\<ALIGN(" end=")"
 syn region asmDirective		start="\<PROLOGUE(" end=")"
