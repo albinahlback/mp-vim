@@ -3,6 +3,9 @@
 " Maintainer:		Albin Ahlbäck <albin.ahlback@gmail.com>
 " Last Change:		2024 Dec 02
 
+" We do not want to comment stuff like `#' as that not a multiplatform comment.
+syn clear asmComment
+
 " GMP style assembly uses M4 for preprocessing
 syn region asmComment		start="dnl" end="$" keepend contains=asmTodo,@Spell
 
